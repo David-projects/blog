@@ -18,6 +18,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+/*
+* Route for each post, when you select a post you will be send here. 
+* This uses 
+* app/Model/Post.php 
+* views/posts/index.blade.php 
+* conf/filesystem.php
+* conf/sheets.php
+* and sheets
+*/
+
 Route::get('/', function () {
 
     $posts = Sheets::collection('posts')->all();
@@ -28,6 +38,15 @@ Route::get('/', function () {
 
 });
 
+/*
+* Route for each post, when you select a post you will be send here. 
+* This uses 
+* app/Model/Post.php 
+* views/posts/show.blade.php 
+* conf/filesystem.php
+* conf/sheets.php 
+* and sheets
+*/
 Route::get('/posts/{slug}', function ($slug) {
 
     $post = Sheets::collection('posts')->all()->where('slug', $slug)->first();
